@@ -1,0 +1,46 @@
+# === Qt / C++ ===
+*.pro.user
+*.qmake.stash
+*.autosave
+*.obj
+*.o
+*.so
+*.a
+*.exe
+*.dll
+*.app
+Makefile*
+build/
+cmake-build-*/
+*.user
+*.user.*
+*.moc
+moc_*.cpp
+ui_*.h
+*.log
+*.qmlc
+*.jsc
+.qmake.cache
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.log
+*.sqlite3
+.env/
+venv/
+env/
+*.db
+
+# === IDEs / Editors ===
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === System Files ===
+.DS_Store
+Thumbs.db
