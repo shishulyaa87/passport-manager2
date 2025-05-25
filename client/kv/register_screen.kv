@@ -1,0 +1,64 @@
+<RegisterScreen>:
+    name: 'register'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 40
+        spacing: 20
+
+        Label:
+            text: "Регистрация"
+            font_size: 32
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        Label:
+            text: "Простой и безопасный способ хранить ваши пароли.\nСоздайте аккаунт, чтобы начать пользоваться приложением."
+            font_size: 16
+            halign: 'center'
+            valign: 'middle'
+            text_size: self.width, None
+            size_hint_y: None
+            height: 60
+
+        TextInput:
+            id: username_input
+            hint_text: "Логин"
+            multiline: False
+            size_hint_y: None
+            height: 40
+
+        TextInput:
+            id: password_input
+            hint_text: "Пароль"
+            multiline: False
+            password: True
+            size_hint_y: None
+            height: 40
+
+        TextInput:
+            id: confirm_password_input
+            hint_text: "Подтвердите пароль"
+            multiline: False
+            password: True
+            size_hint_y: None
+            height: 40
+
+        Label:
+            id: message
+            text: ""
+            color: 1, 0, 0, 1
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        Button:
+            text: "Зарегистрироваться"
+            size_hint_y: None
+            height: 50
+            on_press: root.register(self)
+
+        Button:
+            text: "Назад к входу"
+            size_hint_y: None
+            height: 40
+            background_color: 0.8, 0.8, 0.8, 1
+            on_press: root.go_to_login(self)

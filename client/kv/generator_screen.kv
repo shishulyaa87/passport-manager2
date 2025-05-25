@@ -1,0 +1,92 @@
+<GeneratorScreen>:
+    name: 'generator'
+    
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 15
+        
+        Label:
+            text: 'Генератор паролей'
+            font_size: 24
+            size_hint_y: None
+            height: 40
+            
+        BoxLayout:
+            size_hint_y: None
+            height: 40
+            spacing: 10
+            
+            Label:
+                text: 'Длина:'
+                size_hint_x: 0.3
+                
+            TextInput:
+                id: length_input
+                text: str(root.length)
+                input_filter: 'int'
+                multiline: False
+                hint_text: "12"
+                
+        GridLayout:
+            cols: 2
+            spacing: 10
+            size_hint_y: None
+            height: 100
+            
+            CheckBox:
+                active: root.use_uppercase
+                on_active: root.use_uppercase = self.active
+                
+            Label:
+                text: 'A-Z'
+                
+            CheckBox:
+                active: root.use_digits
+                on_active: root.use_digits = self.active
+                
+            Label:
+                text: '0-9'
+                
+            CheckBox:
+                active: root.use_symbols
+                on_active: root.use_symbols = self.active
+                
+            Label:
+                text: '!@#...'
+                
+        TextInput:
+            id: password_output
+            text: root.generated_password
+            readonly: False
+            font_size: 18
+            size_hint_y: None
+            height: 60
+            hint_text: "Здесь появится пароль"
+            
+        BoxLayout:
+            size_hint_y: None
+            height: 50
+            spacing: 10
+            
+            Button:
+                text: 'Сгенерировать'
+                on_press: root.generate()
+                background_color: 0.2, 0.6, 0.2, 1
+                
+            Button:
+                text: 'Копировать'
+                on_press: root.copy_to_clipboard()
+                background_color: 0.1, 0.5, 0.8, 1
+                
+        Button:
+            text: 'Назад'
+            size_hint_y: None
+            height: 40
+            on_press: root.manager.current = 'password_manager'
+            
+        Label:
+            text: root.status_message
+            color: (1, 0, 0, 1) if 'Ошибка' in root.status_message else (0, 0.5, 0, 1)
+            size_hint_y: None
+            height: 30
